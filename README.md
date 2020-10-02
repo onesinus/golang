@@ -1,3 +1,4 @@
+```html
 Repository
 	Modules
 		Package  A
@@ -7,7 +8,7 @@ Repository
 		Package B
 			File B1
 			File B2
-		
+
 1 Golang repository bisa terdiri dari 1 module atau lebih, tetapi umumnya hanya 1 module
 
 Module adalah sekumpulan package yang dirilis bersamaan
@@ -66,3 +67,4 @@ Akan muncul Hello, world.
 
 Sesuai kode yang kita buat pada hello.go
 
+```
