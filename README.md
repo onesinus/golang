@@ -32,7 +32,7 @@ https://www.jetbrains.com/help/go/configuring-goroot-and-gopath.html
 https://stackoverflow.com/questions/7970390/what-should-be-the-values-of-gopath-and-goroot
 
 GOPATH => untuk memberitahu dimana lokasi instalasi golang, supaya bisa menjalankan perintah go
-GOROOT => 
+GOROOT => Memberitau dimana SDK Go berada. Gaperlu diubah kecuali mau ubah versi go.
 ==============================================================================================
 
 ==============================================================================================
@@ -66,5 +66,33 @@ sehingga jika kita menjalankan perintah ini
 Akan muncul Hello, world. 
 
 Sesuai kode yang kita buat pada hello.go
+
+Sekarang kita akan membuat sebuah folder ( module baru ) dan memanggil module tersebut dari file hello.go
+
+buat sebuah folder bernama controllers dan buat sebuah file bernama HelloController.go dengan isi code sebagai berikut
+
+	package controller
+
+	import "fmt"
+
+	func HelloMethod() {
+		fmt.Println("Hello, world.")
+	}
+
+kemudian jalankan perintah go mod init github.com/onesinus/golang/controllers
+
+pada go.mod didalam folder golang ( root folder ) tambahkan code untuk me-replace penggunaan code pada controller sementara masih proses develop code ( belum production )
+
+	replace github.com/onesinus/golang/controllers => ./controllers
+
+Sehingga keseluruhan code pada go.mod di root folder menjadi seperti ini
+
+	module github.com/onesinus/golang
+
+	go 1.15
+
+	replace github.com/onesinus/golang/controllers => ./controllers
+
+	require github.com/onesinus/golang/controllers v0.0.0-00010101000000-000000000000
 
 ```
